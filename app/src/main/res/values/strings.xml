@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">NUMAD17F-XiaohuaWang</string>
+    <string name="title_name">NUMAD17F-XiaohuaWang</string>
+    <string name="aboutButton">About</string>
+    <string name="errorButton">show me an error</string>
+    <string name="name">xiaohua wang</string>
+    <string name="email">wxhdax@gmail.com</string>
+    <string name="yearInSchool">1st year in NEU</string>
+    <string name="uniqueId">unique Id</string>
+    <string name="closeButton">Close</string>
+    <string name="textViewVersionCode">Version Code : 1</string>
+    <string name="textViewVersionName">Version Name : 1.0</string>
+</resources>
