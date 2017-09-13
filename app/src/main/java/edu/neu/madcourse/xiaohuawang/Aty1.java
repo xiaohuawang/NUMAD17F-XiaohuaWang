@@ -1,9 +1,11 @@
 package edu.neu.madcourse.xiaohuawang;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -37,15 +39,15 @@ public class Aty1 extends AppCompatActivity {
 
     }
 
-    private String generateId() {
+    public String generateId() {
 
-        String deviceId=android.provider.Settings.Secure.getString(this.getContentResolver(),
-                Settings.Secure.ANDROID_ID);
+//        String deviceId = android.provider.Settings.Secure.getString(this.getContentResolver(),
+//                Settings.Secure.ANDROID_ID);
 
-        System.out.println("device id= "+deviceId);
-//        if("")
-
+        TelephonyManager tm=(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        String deviceId=tm.getDeviceId();
         return deviceId;
+
     }
 
 }
