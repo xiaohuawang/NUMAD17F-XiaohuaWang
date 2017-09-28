@@ -8,6 +8,25 @@
     <string name="yearInSchool">1st year in NEU</string>
     <string name="uniqueId">unique Id</string>
     <string name="closeButton">Close</string>
-    <string name="textViewVersionCode">Version Code : 1</string>
-    <string name="textViewVersionName">Version Name : 1.0</string>
+    <string name="textViewVersionCode">Version Code : 9</string>
+    <string name="textViewVersionName">Version Name : 9.0</string>
+    <string name="dictionaryButton">Dictionary</string>
+    <string name="clearButton">Clear</string>
+    <string name="setSize">setSize</string>
+    <string name="acknowledgments">acknowledgments</string>
+    <string name="acknowledgmentContent1">Ackownledgements</string>
+    <string name="acknowledgmentContent2">
+        On building this app, I have referenced the following material. Thank you for all the support!!!
+        \n\nQuestion about how to make a beep (from stackoverflow)
+        \nhttps://stackoverflow.com/questions/12154940/how-to-make-a-beep-in-android
+    </string>
+    <string name="acknowledgmentContent3">
+        \nQuestion about how to create listview and arrayadapter.
+        \nhttps://www.youtube.com/watch?v=eAPFgC9URqc\n
+    </string>
+    <string name="acknowledgmentContent4">
+        Question about how to create log
+        \n https://developer.android.com/reference/android/util/Log.html
+    </string>
+
 </resources>

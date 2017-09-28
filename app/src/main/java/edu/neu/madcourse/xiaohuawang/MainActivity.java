@@ -6,24 +6,35 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import edu.neu.madcourse.xiaohuawang.R;
-
 public class MainActivity extends AppCompatActivity {
 
     private Button aboutButton;
     private Button errorButton;
+    private Button dictionaryButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("XiaohuaWang");//set the title bar
+        //set the title bar
+        this.setTitle("Xiaohua Wang");
         setContentView(R.layout.activity_main);
+
+
+        dictionaryButton = (Button) findViewById(R.id.dictionaryButton);
+        dictionaryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, DictionaryActivity.class);
+                startActivity(i);
+            }
+        });
 
         aboutButton = (Button) findViewById(R.id.aboutButton);
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, Aty1.class);
+
+                Intent i = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(i);
             }
 
@@ -37,11 +48,7 @@ public class MainActivity extends AppCompatActivity {
 //                stackOverflow();
             }
         });
-    }
 
-//    public void stackOverflow() {
-//        this.stackOverflow();
-//
-//    }
+    }
 
 }

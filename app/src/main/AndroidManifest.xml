@@ -15,11 +15,12 @@
         <activity android:name="edu.neu.madcourse.xiaohuawang.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="edu.neu.madcourse.xiaohuawang.Aty1"></activity>
+        <activity android:name="edu.neu.madcourse.xiaohuawang.AboutActivity"></activity>
+        <activity android:name="edu.neu.madcourse.xiaohuawang.DictionaryActivity"></activity>
+        <activity android:name="edu.neu.madcourse.xiaohuawang.AcknowledgementsActivity"></activity>
     </application>
 
 </manifest>
