@@ -390,7 +390,7 @@ public class GameFragment extends Fragment {
                     }
                     currentGroup = -1;
                 } else {
-                    currentWordTv.setText("That's not a word!");
+                    currentWordTv.setText("Illegal!");
                     soundPool.play(soundInvalid, mVolume, mVolume, 1, 0, 1f);
                 }
             }
