@@ -21,6 +21,12 @@
         android:layout_height="wrap_content"
         android:text="@string/dictionaryButton" />
 
+    <Button
+        android:id="@+id/gameButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go To Game" />
+
     <TextView
         android:id="@+id/textViewVersionCode"
         android:layout_width="368dp"

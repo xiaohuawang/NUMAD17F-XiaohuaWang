@@ -21,6 +21,7 @@
         <activity android:name="edu.neu.madcourse.xiaohuawang.AboutActivity"></activity>
         <activity android:name="edu.neu.madcourse.xiaohuawang.DictionaryActivity"></activity>
         <activity android:name="edu.neu.madcourse.xiaohuawang.AcknowledgementsActivity"></activity>
+        <activity android:name="edu.neu.madcourse.xiaohuawang.GameActivity" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
