@@ -16,8 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //set the title bar
-        this.setTitle("Xiaohua Wang");
+
         setContentView(R.layout.activity_main);
 
 

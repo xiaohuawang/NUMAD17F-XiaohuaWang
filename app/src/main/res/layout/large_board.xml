@@ -192,15 +192,11 @@
         android:layout_row="1"
         android:textSize="17dp" />
 
+    <Chronometer
+        android:id="@+id/chronometer_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="0dp"/>
 
-    <TextView
-        android:id="@+id/text_timer"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_column="2"
-        android:layout_row="1"
-        android:text="03:00"
-        android:textAlignment="center"
-        android:textColor="@color/textcolor" />
 
 </GridLayout>

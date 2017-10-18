@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">NUMAD17F-XiaohuaWang</string>
     <string name="title_name">NUMAD17F-XiaohuaWang</string>
+
+    <string name="MainActivity">Xiaohua Wang</string>
+    <string name="AboutActivity">Xiaohua Wang</string>
+    <string name="Acknowledgement">Acknowledgement</string>
+    <string name="TestDictionary">Test Dictionary</string>
+    <string name="GameActivity">Word Game</string>
+
     <string name="aboutButton">About</string>
     <string name="errorButton">show me an error</string>
     <string name="name">xiaohua wang</string>
@@ -8,8 +15,8 @@
     <string name="yearInSchool">1st year in NEU</string>
     <string name="uniqueId">unique Id</string>
     <string name="closeButton">Close</string>
-    <string name="textViewVersionCode">Version Code : 9</string>
-    <string name="textViewVersionName">Version Name : 9.0</string>
+    <string name="textViewVersionCode">Version Code : 12</string>
+    <string name="textViewVersionName">Version Name : 12.0</string>
     <string name="dictionaryButton">Dictionary</string>
     <string name="clearButton">Clear</string>
     <string name="setSize">setSize</string>
@@ -20,17 +27,13 @@
     <string name="timer2">3:00</string>
     <string name="text_word">Your word</string>
     <string name="text_word1">Your word is</string>
-
     <string name="score_1">Your score is:</string>
     <string name="score_0">0</string>
     <string name="submit_label">submit</string>
     <string name="pause_button">pause</string>
     <string name="phase2_button">Phase 2</string>
-
     <string name="phase2_end">Game End</string>
     <string name="phase2_begin">Please press phase2 button.</string>
-
-
 
     <string name="acknowledgmentContent2">
         On building this app, I have referenced the following material. Thank you for all the support!!!

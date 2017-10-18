@@ -28,7 +28,6 @@ public class AboutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("XiaohuaWang");//set the title bar
         setContentView(R.layout.activity_about);
 
         buttonClose = (Button) findViewById(R.id.buttonClose);

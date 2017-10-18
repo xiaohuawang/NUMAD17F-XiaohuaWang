@@ -26,16 +26,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.TimerTask;
-
-import android.app.Activity;
-import android.os.Handler;
-import android.os.Message;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -48,9 +40,6 @@ public class GameFragment extends Fragment {
     static private int mSmallIds[] = {R.id.small1, R.id.small2, R.id.small3,
             R.id.small4, R.id.small5, R.id.small6, R.id.small7, R.id.small8,
             R.id.small9,};
-    private Tile mEntireBoard = new Tile(this);
-    private Tile mLargeTiles[] = new Tile[9];
-    private Tile mSmallTiles[][] = new Tile[9][9];
     private Set<Tile> mAvailable = new HashSet<Tile>();
     private int soundMiss, soundInvalid, soundAdd, soundSuccess;
     private SoundPool soundPool;
@@ -80,14 +69,15 @@ public class GameFragment extends Fragment {
     private String currentWord2 = "";
     private int phase1Score;
     private long lastPause;
-    //    private int count_down = 183;
+    // private int count_down = 183;
     private MyTimer myTimer;
+    private Chronometer chronometer;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("onCreate");
+        Log.d("UT3", "-----------on create---------------");
 
         // Retain this fragment across configuration changes.
         setRetainInstance(true);
@@ -100,11 +90,6 @@ public class GameFragment extends Fragment {
         soundAdd = soundPool.load(getActivity(), R.raw.soundadd, 1);
         soundMiss = soundPool.load(getActivity(), R.raw.soundmiss, 1);
         soundInvalid = soundPool.load(getActivity(), R.raw.soundinvalid, 1);
-
-
-//        get dictionary wordset
-//        System.out.println("get all the dictionary---------");
-//        getDictionary();
     }
 
 
@@ -116,17 +101,9 @@ public class GameFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.large_board, container, false);
         this.rootView = rootView;
-        System.out.println("begin to read the dictionary");
 
-        //readDictionary();
         InputStream inputStream = getResources().openRawResource(R.raw.wordlist);
         InputStreamReader inputStreamReader = null;
-
-
-//        chronometer.
-
-        //setup timer
-//        timer.schedule(timerTask, 0, 1000);
 
         initViews(rootView);
 
@@ -141,18 +118,63 @@ public class GameFragment extends Fragment {
         currentWordTv = rootView.findViewById(R.id.text_word);
         totalScoreTv = rootView.findViewById(R.id.text_score);
 
-        phase2 = (Button) rootView.findViewById(R.id.button_phase2);
-        phase2.setVisibility(View.INVISIBLE);
-//        phase2.setVisibility(View.VISIBLE);
+        chronometer = rootView.findViewById(R.id.chronometer_1);
+//        chronometer.setVisibility(View.INVISIBLE);
+        chronometer.start();
 
         myTimer = rootView.findViewById(R.id.timer);
-        myTimer.initTime(180);
+        myTimer.initTime(181);
         myTimer.start();
 
+        phase2 = (Button) rootView.findViewById(R.id.button_phase2);
+        phase2.setVisibility(View.INVISIBLE);
+//      phase2.setVisibility(View.VISIBLE);
+
+
+        //when reach stage1 end
+        chronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+            @Override
+            public void onChronometerTick(Chronometer chronometer) {
+                if (SystemClock.elapsedRealtime() - chronometer.getBase()> 90 * 1000) {
+                    chronometer.stop();
+                    myTimer.stop();
+
+                    phase2Begin();
+                    String phase2Begin = getString(R.string.phase2_begin);
+                    Toast.makeText(getActivity(), phase2Begin, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), chronometer.getText(), Toast.LENGTH_SHORT).show();
+
+                    for (int i = 0; i < 9; i++) {
+                        View outer4 = rootView.findViewById(mLargeIds[i]);
+                        for (int j = 0; j < 9; j++) {
+                            Button inner = (Button) outer4.findViewById(mSmallIds[j]);
+                            inner.setTextSize(20);
+
+//                            System.out.println("current group= " + currentGroup);
+//                            System.out.println("get tag= " + (int) inner.getTag() % 10);
+                            if (!inner.isSelected() || (int) inner.getTag() % 10 == currentGroup) {
+                                inner.setText("");
+                            }
+                            inner.setEnabled(false);
+                        }
+                    }
+                    selectedText.clear();
+                }
+
+//                if (SystemClock.elapsedRealtime() - chronometer.getBase() > 50 * 1000) {
 //
-
-
-//        phase2.setVisibility(View.INVISIBLE);
+//                    String gameEnd = getString(R.string.phase2_end);
+//                    Toast.makeText(getActivity(), gameEnd, Toast.LENGTH_LONG).show();
+//
+////                        rootView.findViewById(R.id.button_phase2).setBackgroundColor(Color.GREEN);
+//                    rootView.findViewById(R.id.button_phase2).setClickable(false);
+//
+//                    //end game
+//                    GameEnd();
+//                }
+////
+            }
+        });
 
         //set up what happened when you clicked the small button
         for (int large = 0; large < 9; large++) {
@@ -175,9 +197,9 @@ public class GameFragment extends Fragment {
                         if (currentGroup == -1) {
 
 //                        smallTile.animate();
-                            System.out.println("int group= " + group);
-                            System.out.println("get tag= " + currentButton.getTag());
-                            System.out.println("get text= " + currentButton.getText());
+//                            System.out.println("int group= " + group);
+//                            System.out.println("get tag= " + currentButton.getTag());
+//                            System.out.println("get text= " + currentButton.getText());
 
                             currentGroup = group;
                             currentButton.setSelected(true);
@@ -269,7 +291,7 @@ public class GameFragment extends Fragment {
                     return;
                 }
 
-//                if (wordSet.contains(currentWord)){
+//              if (wordSet.contains(currentWord)){
                 if (wordSet.contains(currentWord) || wordSet.contains(currentWord2)) {
 
                     System.out.println("second time click, come here---------");
@@ -306,7 +328,7 @@ public class GameFragment extends Fragment {
                                 inner.setEnabled(false);
                             }
                         }
-//                          timerTask.cancel();
+
                         String gameEnd = getString(R.string.phase2_end);
                         Toast.makeText(getActivity(), gameEnd, Toast.LENGTH_LONG).show();
 
@@ -314,6 +336,7 @@ public class GameFragment extends Fragment {
                         rootView.findViewById(R.id.button_phase2).setClickable(false);
 
                         //end game
+                        System.out.println("come here end game");
                         GameEnd();
 
                     } else {
@@ -336,13 +359,13 @@ public class GameFragment extends Fragment {
                                 inner.setEnabled(false);
                             }
                             if (inner.isSelected()) {
-                                inner.setTextColor(Color.parseColor("#FFFFFF"));
+                                inner.setTextColor(Color.WHITE);
                                 inner.setEnabled(false);
                             }
                         }
 
                         //when completed this amout of the large board, go to phase 2
-                        if (completedLargeBorad == 3) {
+                        if (completedLargeBorad == 9) {
 
                             // disable all the unselected key
                             for (int i = 0; i < 9; i++) {
@@ -359,6 +382,7 @@ public class GameFragment extends Fragment {
                             }
 
                             myTimer.stop();
+                            chronometer.stop();
                             phase2Begin();
                             String phase2Begin = getString(R.string.phase2_begin);
                             Toast.makeText(getActivity(), phase2Begin, Toast.LENGTH_LONG).show();
@@ -381,21 +405,12 @@ public class GameFragment extends Fragment {
                 if (pauseGameButton.getText().equals("pause")) {
                     pauseGameButton.setText("resume");
                     hideScreen(true);
-
-
+                    myTimer.onPause();
                     // when the button text= resume
                 } else {
                     pauseGameButton.setText("pause");
                     hideScreen(false);
-                    if (lastPause != 0) {
-//                        chronometer.setBase(chronometer.getBase()+ SystemClock.elapsedRealtime()-lastPause);
-
-
-                    } else {
-//                        chronometer.setBase(SystemClock.elapsedRealtime());
-
-
-                    }
+                    myTimer.onResume();
                 }
 
             }
@@ -506,6 +521,7 @@ public class GameFragment extends Fragment {
         Log.d("UT3", "------------------end game-------------------");
         myTimer.initTime(0);
         myTimer.stop();
+        chronometer.stop();
     }
 
     //
@@ -523,6 +539,8 @@ public class GameFragment extends Fragment {
                 view.setEnabled(false);
                 myTimer.initTime(90);
                 myTimer.start();
+//                chronometer.start();
+
                 for (int i = 0; i < 9; i++) {
                     View outer = rootView.findViewById(mLargeIds[i]);
 
@@ -544,7 +562,7 @@ public class GameFragment extends Fragment {
                             inner.setTextSize(14);
                         }
 
-                        //set up what happened when we click phase 2 button
+//                        set up what happened when we click phase 2 button
                         inner.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -638,65 +656,14 @@ public class GameFragment extends Fragment {
                                 }
                             }
                         });
+
                     }
+
                 }
-//                reset the timer here
-//                ls.clear();
-//                timerTask.cancel();
-//                timerTask = new TimerTask() {
-//                    @Override
-//                    public void run() {
-//                        mHandler.sendEmptyMessage(1);
-//                    }
-//                };
-//                timer.schedule(timerTask, 0, 1000);
 
             }
         });
     }
-
-//    private Timer timer = new Timer();
-//    private TimerTask timerTask = new TimerTask() {
-//
-//        int i=0;
-//
-//        @Override
-//        public void run() {
-//            handler.sendEmptyMessage(0);
-//            System.out.println(i++);
-//        }
-//    };
-
-//    private Handler handler = new Handler() {
-//        @Override
-//        public void handleMessage(Message message) {
-//            Log.d("UT3", "------------------my handler-------------------");
-//            super.handleMessage(message);
-//
-//            count_down--;
-//            if (count_down % 60 < 10 && count_down % 60 >= 0) {
-//                timer_tv.setText(Integer.toString(count_down / 60) + ":0" + Integer.toString(count_down % 60));
-//            } else {
-//                timer_tv.setText(Integer.toString(count_down / 60) + ":" + Integer.toString(count_down % 60));
-//            }
-//            System.out.println("now:"+timer_tv.getText());
-//            if (timer_tv.getText().toString().equals("1:30")) {
-//                timerTask.cancel();
-//
-//
-//                phase2Begin();
-//                String phase1_end = getString(R.string.phase2_begin);
-//                Toast.makeText(getActivity(), phase1_end, Toast.LENGTH_SHORT).show();
-//            }
-//            if (timer_tv.getText().toString().equals("0:00")) {
-//                timer_tv.setText("Time up!");
-//                timerTask.cancel();
-//                GameEnd();
-//            }
-//
-//        }
-//    };
-
 
 }
 

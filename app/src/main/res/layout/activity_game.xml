@@ -20,6 +20,8 @@
        android:scaleType="centerCrop"
        android:src="@drawable/background2"/>
 
+   <include layout="@layout/thinking"/>
+
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
@@ -28,28 +30,26 @@
 
       <fragment
           android:id="@+id/fragment_game"
+          android:name="edu.neu.madcourse.xiaohuawang.GameFragment"
           class="edu.neu.madcourse.xiaohuawang.GameFragment"
           android:layout_width="wrap_content"
-          android:name="edu.neu.madcourse.xiaohuawang.GameFragment"
           android:layout_height="wrap_content"
-          tools:layout="@layout/fragment_game"/>
+          tools:layout="@layout/fragment_game" />
       <!-- Control fragment goes here... -->
 
       <ToggleButton
           android:id="@+id/button_toggle"
           android:layout_width="130dp"
           android:layout_height="wrap_content"
-          android:elevation="@dimen/elevation_low"
-          android:textOn="Music On"
-          android:textOff="Music Off"
-          android:checked="true"
-          android:textAllCaps="false"
           android:layout_gravity="right"
-          android:layout_marginRight="9dp"/>
+          android:layout_marginRight="9dp"
+          android:checked="true"
+          android:elevation="@dimen/elevation_low"
+          android:textAllCaps="false"
+          android:textOff="Music Off"
+          android:textOn="Music On" />
 
 
    </LinearLayout>
-
-   <include layout="@layout/thinking"/>
 
 </FrameLayout>

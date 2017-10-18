@@ -52,7 +52,7 @@ public class DictionaryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //set the title bar
+
         setTitle("Test Dictionary");
         setContentView(R.layout.activity_dictionary);
         getDictionary();
@@ -104,11 +104,11 @@ public class DictionaryActivity extends AppCompatActivity {
 
     //clear button
     public void onClick(View view) {
-            searchList.clear();
-            adapter = new ArrayAdapter<String>(DictionaryActivity.this, R.layout.activity_word, searchList);
-            inputTextListView = (ListView) findViewById(R.id.inputTextListView);
-            inputTextListView.setAdapter(adapter);
-            inputEditText.setText("");
+        searchList.clear();
+        adapter = new ArrayAdapter<String>(DictionaryActivity.this, R.layout.activity_word, searchList);
+        inputTextListView = (ListView) findViewById(R.id.inputTextListView);
+        inputTextListView.setAdapter(adapter);
+        inputEditText.setText("");
     }
 
     //save the dictionary txt into hashset
