@@ -81,7 +81,7 @@ public class GameActivity extends Activity {
         for (int i = 0; i < 9; i++) {
             int index = (int) Math.floor(Math.random() * targetString.size());
 
-//          for test
+//          for fragment_main
 //          System.out.println("index= "+index);
             while (usedWord.contains(index)) {
                 index = (int) Math.floor(Math.random() * targetString.size());
@@ -126,7 +126,7 @@ public class GameActivity extends Activity {
             for (int j = 0; j < 9; j++) {
                 Button inner = (Button) outer.findViewById(mSmallIds[j]);
                 if (d == 0) {
-//                    for test
+//                    for fragment_main
 //                    inner.setText("6");
                     inner.setText(String.valueOf(wordString.get(d).charAt(j)));
                 } else {

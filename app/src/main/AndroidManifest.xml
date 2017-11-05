@@ -13,8 +13,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="edu.neu.madcourse.xiaohuawang.MainActivity"
-            android:label="@string/MainActivity">
+            android:name="edu.neu.madcourse.xiaohuawang.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -30,9 +29,29 @@
             android:name="edu.neu.madcourse.xiaohuawang.AcknowledgementsActivity"
             android:label="@string/Acknowledgement"/>
         <activity
+            android:name="edu.neu.madcourse.xiaohuawang.MainFragment"/>
+        <activity
             android:name="edu.neu.madcourse.xiaohuawang.GameActivity"
             android:label="@string/GameActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name="edu.neu.madcourse.xiaohuawang.Scoreboard_Activity"/>
+        <activity android:name="edu.neu.madcourse.xiaohuawang.Leaderboard_Activity"/>
+        <activity android:name="edu.neu.madcourse.xiaohuawang.SubmitData_Activity"/>
+
+
+        <service
+            android:name=".WordGameMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".WordGameInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

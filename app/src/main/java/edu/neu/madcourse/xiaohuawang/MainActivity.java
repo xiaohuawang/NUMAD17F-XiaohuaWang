@@ -15,8 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
+        super.onCreate(savedInstanceState);
+        setTitle("Xiaohua Wang");
         setContentView(R.layout.activity_main);
 
 
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         gameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, GameActivity.class);
+                Intent i = new Intent(MainActivity.this, MainFragment.class);
                 startActivity(i);
             }
         });
