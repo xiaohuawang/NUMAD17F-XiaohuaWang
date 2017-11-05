@@ -14,7 +14,7 @@
     android:background="@drawable/tile_purple"
     android:elevation="@dimen/elevation_low"
     android:padding="@dimen/small_board_padding"
-    tools:context="edu.neu.madcourse.xiaohuawang.GameActivity">
+    tools:context=".GameActivity">
 
     <Button
         android:id="@+id/small1"

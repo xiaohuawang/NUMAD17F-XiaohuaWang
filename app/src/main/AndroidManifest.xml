@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.neu.madcourse.xiaohuawang">
-
+    package="xiaohuawang.madcourse.neu.edu.numad17f_xiaohuawang">
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
@@ -13,30 +12,32 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="edu.neu.madcourse.xiaohuawang.MainActivity">
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.neu.madcourse.xiaohuawang.AboutActivity"
+            android:name=".AboutActivity"
             android:label="@string/AboutActivity"/>
         <activity
-            android:name="edu.neu.madcourse.xiaohuawang.DictionaryActivity"
+            android:name=".DictionaryActivity"
             android:label="@string/TestDictionary"/>
         <activity
-            android:name="edu.neu.madcourse.xiaohuawang.AcknowledgementsActivity"
+            android:name=".AcknowledgementsActivity"
             android:label="@string/Acknowledgement"/>
         <activity
-            android:name="edu.neu.madcourse.xiaohuawang.MainFragment"/>
+            android:name=".MainFragment"/>
         <activity
-            android:name="edu.neu.madcourse.xiaohuawang.GameActivity"
+            android:name=".GameActivity"
             android:label="@string/GameActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name="edu.neu.madcourse.xiaohuawang.Scoreboard_Activity"/>
-        <activity android:name="edu.neu.madcourse.xiaohuawang.Leaderboard_Activity"/>
-        <activity android:name="edu.neu.madcourse.xiaohuawang.SubmitData_Activity"/>
+        <activity android:name=".Scoreboard_Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Leaderboard_Activity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SubmitData_Activity"/>
 
 
         <service

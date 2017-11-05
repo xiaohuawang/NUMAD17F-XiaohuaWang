@@ -12,7 +12,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.neu.madcourse.xiaohuawang.GameActivity">
+    tools:context=".GameActivity">
 
    <ImageView
        android:layout_width="match_parent"
@@ -30,8 +30,8 @@
 
       <fragment
           android:id="@+id/fragment_game"
-          android:name="edu.neu.madcourse.xiaohuawang.GameFragment"
-          class="edu.neu.madcourse.xiaohuawang.GameFragment"
+          android:name="xiaohuawang.madcourse.neu.edu.numad17f_xiaohuawang.GameFragment"
+          class="xiaohuawang.madcourse.neu.edu.numad17f_xiaohuawang.GameFragment"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           tools:layout="@layout/fragment_game" />

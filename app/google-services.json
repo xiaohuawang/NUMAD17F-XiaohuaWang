@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "426596155297",
-    "firebase_url": "https://numad17f-xiaohuawang.firebaseio.com",
-    "project_id": "numad17f-xiaohuawang",
-    "storage_bucket": "numad17f-xiaohuawang.appspot.com"
+    "project_number": "304495987551",
+    "firebase_url": "https://numad17f-xiaohuawang-f3979.firebaseio.com",
+    "project_id": "numad17f-xiaohuawang-f3979",
+    "storage_bucket": "numad17f-xiaohuawang-f3979.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:426596155297:android:a48d6aef2b7a07a2",
+        "mobilesdk_app_id": "1:304495987551:android:0ec50428e898f898",
         "android_client_info": {
-          "package_name": "edu.neu.madcourse.xiaohuawang"
+          "package_name": "xiaohuawang.madcourse.neu.edu.numad17f_xiaohuawang"
         }
       },
       "oauth_client": [
         {
-          "client_id": "426596155297-gks0q4o1qs51jq2c2a254qoenotu4rfc.apps.googleusercontent.com",
+          "client_id": "304495987551-q4f9hdblgt80tf11lcvk74qj3n6qc69a.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCQp4R0aRMEIWS4RG6K0K-pXskFGqQjQZw"
+          "current_key": "AIzaSyCBCTf7G3o7QCnK2rTZ8F-iTLQxbLF6EJ4"
         }
       ],
       "services": {

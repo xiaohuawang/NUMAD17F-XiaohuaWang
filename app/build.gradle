@@ -4,11 +4,11 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "edu.neu.madcourse.xiaohuawang"
+        applicationId "xiaohuawang.madcourse.neu.edu.numad17f_xiaohuawang"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 20
-        versionName "20.0"
+        versionCode 21
+        versionName "21.0"
         testInstrumentationRunner "android.support.fragment_main.runner.AndroidJUnitRunner"
     }
     buildTypes {

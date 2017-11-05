@@ -36,23 +36,26 @@
             android:textColor="@color/field_color"
             android:textSize="15dp" />
 
+        <TextView
+            android:id="@+id/userScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Score"
+            android:textColor="@color/field_color"
+            android:textSize="15dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/userWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Highest Score Word"
+            android:textColor="@color/field_color"
+            android:textSize="15dp"
+            android:layout_marginLeft="20dp"/>
+
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/userScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Score"
-        android:textColor="@color/field_color"
-        android:textSize="15dp" />
-
-    <TextView
-        android:id="@+id/userWord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Highest Score Word"
-        android:textColor="@color/field_color"
-        android:textSize="15dp" />
 
     <Space
         android:layout_width="match_parent"
