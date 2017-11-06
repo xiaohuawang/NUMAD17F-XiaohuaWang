@@ -33,8 +33,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import xiaohuawang.madcourse.neu.edu.numad17f_xiaohuawang.models.GamePlayer;
 
 public class Leaderboard_Activity extends Activity {
     private DatabaseReference mDatabase;
@@ -156,12 +156,14 @@ public class Leaderboard_Activity extends Activity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         token = FirebaseInstanceId.getInstance().getToken();
         sender = "";
+        System.out.println("token before= "+token);
         if (token.isEmpty()) {
             TextView tv = new TextView(this);
             tv.setText("Sorry your device is offline, could not retrieve data");
             vg.addView(tv);
             return;
-        } else {
+        }
+//        else if(token.contains("\"")){
 //            if (token.contains(":")) {
 //                Pattern p = Pattern.compile("\"(.+?)\"");
 //                Matcher m = p.matcher(token);
@@ -171,7 +173,7 @@ public class Leaderboard_Activity extends Activity {
 //                }
 //                token = strs.get(1);
 //            }
-        }
+//        }
 
         mDatabase.child("leaderboardUser").addValueEventListener(new ValueEventListener() {
             @Override

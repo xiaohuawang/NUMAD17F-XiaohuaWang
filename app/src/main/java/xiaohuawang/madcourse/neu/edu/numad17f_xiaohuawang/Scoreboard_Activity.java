@@ -16,13 +16,11 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
+import xiaohuawang.madcourse.neu.edu.numad17f_xiaohuawang.models.GamePlayer;
 
 
 public class Scoreboard_Activity extends Activity {
@@ -38,14 +36,16 @@ public class Scoreboard_Activity extends Activity {
         vg = (ViewGroup) findViewById(R.id.activity_scoreboard);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         token = FirebaseInstanceId.getInstance().getToken();
-
+        System.out.println("token before= "+token);
         //check if the device is offline
         if(token.isEmpty()){
             TextView tv = new TextView(this);
             tv.setText("We can't get your device toekn number");
             vg.addView(tv);
             return;
-        }else{
+
+        }
+//        else if(token.contains("\"")){
 //            if (token.contains(":")) {
 //                Pattern p = Pattern.compile("\"(.+?)\"");
 //                Matcher m = p.matcher(token);
@@ -55,7 +55,7 @@ public class Scoreboard_Activity extends Activity {
 //                }
 //                token = strs.get(1);
 //            }
-        }
+//        }
         System.out.println("my token is= "+token);
 
         //modify ui, give all the database information to ui

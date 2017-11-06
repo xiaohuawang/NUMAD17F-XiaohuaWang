@@ -1,4 +1,8 @@
 # Add project specific ProGuard rules here.
+-keepattributes Signature
+-keepclassmembers class xiaohuawang.madcourse.neu.edu.numad17f_xiaohuawang.models.** {
+  *;
+}
 # By default, the flags in this file are appended to flags specified
 # in /Users/yangyangyy/Library/Android/sdk/tools/proguard/proguard-android.txt
 # You can edit the include path and order by changing the proguardFiles
@@ -23,3 +27,4 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+

@@ -38,8 +38,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
+import xiaohuawang.madcourse.neu.edu.numad17f_xiaohuawang.models.GamePlayer;
 
 /**
  * Created by yangyangyy on 11/4/17.
@@ -86,18 +86,20 @@ public class SubmitData_Activity extends Activity {
         token = FirebaseInstanceId.getInstance().getToken();
         System.out.println("token before= " + token);
 
-//        if (token.contains(":")) {
-//            Pattern p = Pattern.compile("\"(.+?)\"");
-//            Matcher m = p.matcher(token);
-//            ArrayList<String> strs = new ArrayList<String>();
-//            while (m.find()) {
-//                strs.add(m.group(1));
+//        if(token.contains("\"")){
+//            if (token.contains(":")) {
+//                Pattern p = Pattern.compile("\"(.+?)\"");
+//                Matcher m = p.matcher(token);
+//                ArrayList<String> strs = new ArrayList<String>();
+//                while (m.find()) {
+//                    strs.add(m.group(1));
+//                }
+//                token = strs.get(1);
 //            }
-//            token = strs.get(1);
 //        }
 
         Log.d("UT3", "------------------token-------------------");
-        System.out.println("token= " + token);
+        System.out.println("token after= " + token);
         if (token.isEmpty()) {
             System.out.println("the token is empty--------------------");
             name_text.setText("Sorry your device is currently offline");
@@ -148,6 +150,8 @@ public class SubmitData_Activity extends Activity {
                 mDatabase.child("leaderboardUser").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        System.out.println("----------------------dataSnapShot= "+dataSnapshot);
                         GenericTypeIndicator<HashMap<String, GamePlayer>> t = new GenericTypeIndicator<HashMap<String, GamePlayer>>() {
                         };
                         Map<String, GamePlayer> name_map = dataSnapshot.getValue(t);
